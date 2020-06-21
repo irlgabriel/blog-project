@@ -20,8 +20,13 @@
     <%= form.label :body %>
     <%= form.text_area :body %>
   </div>
-
+  <p>
+    <%= form.label :tag_list %><br />
+    <%= form.text_field :tag_list %>
+  </p>
   <div class="actions">
     <%= form.submit %>
   </div>
+
+
 <% end %>

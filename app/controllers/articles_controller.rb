@@ -23,6 +23,16 @@ class ArticlesController < ApplicationController
   def edit
   end
 
+  def tag_list=(tags_string)
+  end
+
+  def tag_list
+    self.tags.collect do |tag|
+      tag.name
+    end.join(", ")
+  end
+  
+
   # POST /articles
   # POST /articles.json
   def create
@@ -62,6 +72,8 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -71,6 +83,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :tags, :image)
     end
 end
