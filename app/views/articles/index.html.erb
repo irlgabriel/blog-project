@@ -14,7 +14,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr style="font-size: 20px">
-        <td id="article-title"><%= article.title %></td>
+        <td id="article-title"><%= article.title.length > 50 ? article.title[0..50] + '...' : article.title %></td>
         <td id="article-body"><%= article.body.length > 110 ? article.body[0..110] + '...' : article.body%></td>
         <td><button id="show"><%= link_to 'Show', article %></td></button>
         <td><button id="edit"><%= link_to 'Edit', edit_article_path(article) %></td></button>
