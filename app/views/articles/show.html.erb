@@ -1,14 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<p style="font-size: 24px">
   <strong>Title:</strong>
   <%= @article.title %>
 </p>
 
-<p>
+<p style="font-size: 20px">
   <strong>Body:</strong>
   <%= @article.body %>
 </p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
+
+<h3> Comments(<%= @article.comments.size %>)</h3>
+<%= render partial: 'articles/comment', collection: @article.comments %>
+<%= render partial: 'comments/form' %>
