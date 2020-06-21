@@ -1,25 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p style="font-size: 24px">
-  <strong>Title:</strong>
+<p id="title" style="font-size: 24px; text-align: center">
   <%= @article.title %>
 </p>
 
-<p style="font-size: 20px">
-  <strong>Body:</strong>
+
+
+<p id="body" style="font-size: 20px; margin: 40px">
+
   <%= @article.body %>
 </p>
 
-<p>
+<p class="tags">
   Tags:
   <% @article.tags.each do |tag| %>
     <%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<button id="edit"><%= link_to 'Edit', edit_article_path(@article) %> </button>
+<button id="back"><%= link_to 'Back', articles_path %></button>
 
-<h3> Comments(<%= @article.comments.size %>)</h3>
+<h3 style="margin-top: 50px"> Comments(<%= @article.comments.size %>)</h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
 <%= render partial: 'comments/form' %>

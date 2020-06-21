@@ -2,7 +2,7 @@
 
 <h1>Articles</h1>
 
-<table>
+<table id="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -13,12 +13,12 @@
 
   <tbody>
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr style="font-size: 20px">
+        <td id="article-title"><%= article.title %></td>
+        <td id="article-body"><%= article.body.length > 110 ? article.body[0..110] + '...' : article.body%></td>
+        <td><button id="show"><%= link_to 'Show', article %></td></button>
+        <td><button id="edit"><%= link_to 'Edit', edit_article_path(article) %></td></button>
+        <td><button id="destroy" style="background-color: red"><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td></button>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Article', new_article_path %>
+<button id="new" style="background-color: green"><%= link_to 'New Article', new_article_path %></button>
